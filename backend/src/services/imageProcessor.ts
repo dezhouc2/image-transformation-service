@@ -1,9 +1,9 @@
 import sharp from 'sharp';
 
-const REMOVE_BG_API_KEY = process.env.REMOVE_BG_API_KEY;
-
 export const removeBackground = async (imageBuffer: Buffer): Promise<Buffer> => {
-  if (!REMOVE_BG_API_KEY) {
+  const apiKey = process.env.REMOVE_BG_API_KEY;
+  
+  if (!apiKey) {
     throw new Error('REMOVE_BG_API_KEY is not configured');
   }
 
@@ -14,7 +14,7 @@ export const removeBackground = async (imageBuffer: Buffer): Promise<Buffer> => 
   const response = await fetch('https://api.remove.bg/v1.0/removebg', {
     method: 'POST',
     headers: {
-      'X-Api-Key': REMOVE_BG_API_KEY,
+      'X-Api-Key': apiKey,
     },
     body: formData,
   });

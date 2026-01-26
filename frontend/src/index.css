@@ -112,6 +112,7 @@ body {
   background: linear-gradient(135deg, rgba(255, 107, 74, 0.05), rgba(255, 179, 71, 0.03));
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none; /* 允许点击穿透 */
 }
 
 .upload-zone:hover,
@@ -168,6 +169,8 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
+  position: relative;
+  z-index: 10; /* 确保按钮在最上层 */
 }
 
 .upload-button:hover {

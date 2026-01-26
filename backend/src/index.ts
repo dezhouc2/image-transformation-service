@@ -1,11 +1,17 @@
+// Load environment variables FIRST (before any other imports)
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load .env from the backend directory
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
+// Debug: Check if env vars loaded
+console.log('ENV Check - REMOVE_BG_API_KEY:', process.env.REMOVE_BG_API_KEY ? '✅ Loaded' : '❌ Missing');
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import { initCloudinary } from './services/cloudinary';
 import imageRoutes from './routes/images';
-
-// Load environment variables
-dotenv.config();
 
 // Initialize Cloudinary
 initCloudinary();

@@ -137,15 +137,16 @@ function App() {
                 Drag & drop your image here
               </p>
               <span className="upload-or">or</span>
-              <label className="upload-button">
+              <label className="upload-button" htmlFor="file-input">
                 Browse Files
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileSelect}
-                  hidden
-                />
               </label>
+              <input
+                id="file-input"
+                type="file"
+                accept="image/*"
+                onChange={handleFileSelect}
+                style={{ display: 'none' }}
+              />
               <span className="upload-hint">Supports JPG, PNG, WebP, GIF (max 10MB)</span>
             </>
           )}
